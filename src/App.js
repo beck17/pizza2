@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Header, Categories, Sort, PizzaBlock} from "./components";
+import {Categories, Header, PizzaBlock, Sort} from "./components";
 
 
 import './scss/app.scss'
@@ -18,7 +18,7 @@ function App() {
                     </div>
                     <h2 className="content__title">Все пиццы</h2>
                     <div className="content__items">
-                        <PizzaBlock/>
+                        <PizzaBlock title="Мексиканская" price={500}/>
                     </div>
                 </div>
             </div>
