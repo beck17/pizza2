@@ -9,6 +9,16 @@ function Home() {
     const [isLoading, setIsLoading] = useState(true)
     const [activePaginate, setActivePaginate] = useState(1)
 
+    const onClickPaginate = item => {
+        setActivePaginate(item)
+        // window.scrollTo({top: 0});
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        });
+    }
+
 
     useEffect(() => {
         fetch(
@@ -21,6 +31,7 @@ function Home() {
                 setIsLoading(false)
             })
     }, [activePaginate])
+
     return (
         <div className="content">
             <div className="container">
@@ -47,11 +58,11 @@ function Home() {
                             arrPaginate.map((item) =>
                                 <li
                                     key={item}
-                                    className={activePaginate === item ? 'button' : 'button button--outline'}
-                                    style={{marginRight: '15px'}}
-                                    onClick={() => setActivePaginate(item)}
+                                    className={activePaginate === item ? 'paginate-button_active' : 'paginate-button'}
+                                    style={{marginRight: '17px'}}
+                                    onClick={() => onClickPaginate(item)}
                                 >
-                                    <span>{item}</span>
+                                    {item}
                                 </li>
                             )
                         }
