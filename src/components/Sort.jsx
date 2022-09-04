@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-function Sort() {
-    const sorts = ['популярности', 'цене', 'алфавиту']
+function Sort({sorts, activeSort, onClickSort, isOpen, setIsOpen}) {
+    // const sorts = ['популярности', 'цене', 'алфавиту']
 
-    const [isOpen, setIsOpen] = useState(false)
-    const [activeSort, setActiveSort] = useState(sorts[0])
+    // const [isOpen, setIsOpen] = useState(false)
+    // const [activeSort, setActiveSort] = useState(sorts[0])
 
-    const onClickSort = (i) => {
-        setActiveSort(sorts[i])
-        setIsOpen(!isOpen)
-    }
+    // const onClickSort = (i) => {
+    //     setActiveSort(sorts[i])
+    //     setIsOpen(!isOpen)
+    // }
 
     return (
         <div className="sort">
@@ -30,7 +30,7 @@ function Sort() {
                 <span
                     onClick={() => setIsOpen(!isOpen)}
                 >
-                    {activeSort}
+                    {sorts[activeSort]}
                 </span>
             </div>
             {
@@ -41,7 +41,7 @@ function Sort() {
                                 sorts.map((sort, index) =>
                                     <li
                                         key={sort + index}
-                                        className={activeSort === sort ? 'active' : ''}
+                                        className={activeSort === index ? 'active' : ''}
                                         onClick={() => onClickSort(index)}
                                     >
                                         {sort}
